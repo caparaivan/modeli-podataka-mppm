@@ -1,95 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rdf:RDF
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:cim="http://iec.ch/TC57/2010/CIM-schema-cim15#">
+<rdf:RDF 
+    xml:base="http://www.ucaiug.org/CIM100" 
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+    xmlns:cim="http://www.ucaiug.org/CIM100#" 
+    xmlns:ftn="http://www.ftnydro.com/CIM15/2010/extension#">
 
-    <cim:PerLengthSequenceImpedance rdf:ID="PLSI_1">
-		<cim:PerLengthSequenceImpedance.b0ch>0.0012</cim:PerLengthSequenceImpedance.b0ch>
-		<cim:PerLengthSequenceImpedance.bch>0.0015</cim:PerLengthSequenceImpedance.bch>
-		<cim:PerLengthSequenceImpedance.g0ch>0.0001</cim:PerLengthSequenceImpedance.g0ch>
-		<cim:PerLengthSequenceImpedance.gch>0.0002</cim:PerLengthSequenceImpedance.gch>
-		<cim:PerLengthSequenceImpedance.r>0.35</cim:PerLengthSequenceImpedance.r>
-		<cim:PerLengthSequenceImpedance.r0>0.90</cim:PerLengthSequenceImpedance.r0>
-		<cim:PerLengthSequenceImpedance.x>0.40</cim:PerLengthSequenceImpedance.x>
-		<cim:PerLengthSequenceImpedance.x0>1.20</cim:PerLengthSequenceImpedance.x0>
-		<cim:IdentifiedObject.mRID>plsi-mrid-1</cim:IdentifiedObject.mRID>
-		<cim:IdentifiedObject.name>PLSI_1</cim:IdentifiedObject.name>
-	</cim:PerLengthSequenceImpedance>
-	<cim:Conductor rdf:ID="COND_1">
-		<cim:Conductor.length>12.5</cim:Conductor.length>
-		<cim:IdentifiedObject.mRID>cond-mrid-1</cim:IdentifiedObject.mRID>
-		<cim:IdentifiedObject.name>COND_1</cim:IdentifiedObject.name>
-	</cim:Conductor>
-	<cim:ConnectivityNode rdf:ID="CN_1">
-		<cim:ConnectivityNode.description>Main connection point</cim:ConnectivityNode.description>
-		<cim:IdentifiedObject.mRID>conn-mrid-1</cim:IdentifiedObject.mRID>
-		<cim:IdentifiedObject.name>CN_1</cim:IdentifiedObject.name>
-	</cim:ConnectivityNode>
-	<cim:DCLineSegment rdf:ID="DCSEG_1">
-		<cim:Conductor.length>12.5</cim:Conductor.length>
-		<cim:IdentifiedObject.mRID>dclineseg-mrid-1</cim:IdentifiedObject.mRID>
-		<cim:IdentifiedObject.name>DCSEG_1</cim:IdentifiedObject.name>
-	</cim:DCLineSegment>
-	<cim:SeriesCompensator rdf:ID="SC_1">
-		<cim:SeriesCompensator.r>0.05</cim:SeriesCompensator.r>
-		<cim:SeriesCompensator.r0>0.12</cim:SeriesCompensator.r0>
-		<cim:SeriesCompensator.x>0.30</cim:SeriesCompensator.x>
-		<cim:SeriesCompensator.x0>0.85</cim:SeriesCompensator.x0>
-		<cim:IdentifiedObject.mRID>sc-mrid-1</cim:IdentifiedObject.mRID>
-		<cim:IdentifiedObject.name>SC_1</cim:IdentifiedObject.name>
-	</cim:SeriesCompensator>
-	<cim:Terminal rdf:ID="T_1">
-		<cim:Terminal.ConductingEquipment rdf:resource="#DCSEG_1"/>
-		<cim:Terminal.ConnectivityNode rdf:resource="#CN_1"/>
-		<cim:IdentifiedObject.mRID>t-mrid-1</cim:IdentifiedObject.mRID>
-		<cim:IdentifiedObject.name>T_1</cim:IdentifiedObject.name>
-	</cim:Terminal>
-        <!-- ================== DRUGE INSTANCE ================== -->
-
-    <cim:PerLengthSequenceImpedance rdf:ID="PLSI_2">
-        <cim:PerLengthSequenceImpedance.b0ch>0.0010</cim:PerLengthSequenceImpedance.b0ch>
-        <cim:PerLengthSequenceImpedance.bch>0.0013</cim:PerLengthSequenceImpedance.bch>
-        <cim:PerLengthSequenceImpedance.g0ch>0.00008</cim:PerLengthSequenceImpedance.g0ch>
-        <cim:PerLengthSequenceImpedance.gch>0.00015</cim:PerLengthSequenceImpedance.gch>
-        <cim:PerLengthSequenceImpedance.r>0.30</cim:PerLengthSequenceImpedance.r>
-        <cim:PerLengthSequenceImpedance.r0>0.80</cim:PerLengthSequenceImpedance.r0>
-        <cim:PerLengthSequenceImpedance.x>0.35</cim:PerLengthSequenceImpedance.x>
-        <cim:PerLengthSequenceImpedance.x0>1.00</cim:PerLengthSequenceImpedance.x0>
-        <cim:IdentifiedObject.mRID>plsi-mrid-2</cim:IdentifiedObject.mRID>
-        <cim:IdentifiedObject.name>PLSI_2</cim:IdentifiedObject.name>
+    <cim:PerLengthSequenceImpedance rdf:ID="_PLSI_Overs_1">
+        <cim:IdentifiedObject.mRID>_PLSI_Overs_1</cim:IdentifiedObject.mRID>
+        <cim:IdentifiedObject.name>AlCu_120_20</cim:IdentifiedObject.name>
+        <cim:PerLengthSequenceImpedance.r>0.25</cim:PerLengthSequenceImpedance.r>
+        <cim:PerLengthSequenceImpedance.x>0.40</cim:PerLengthSequenceImpedance.x>
+        <cim:PerLengthSequenceImpedance.bch>2.5e-06</cim:PerLengthSequenceImpedance.bch>
+        <cim:PerLengthSequenceImpedance.gch>0.0</cim:PerLengthSequenceImpedance.gch>
+        <cim:PerLengthSequenceImpedance.r0>0.45</cim:PerLengthSequenceImpedance.r0>
+        <cim:PerLengthSequenceImpedance.x0>1.20</cim:PerLengthSequenceImpedance.x0>
+        <cim:PerLengthSequenceImpedance.b0ch>1.5e-06</cim:PerLengthSequenceImpedance.b0ch>
+        <cim:PerLengthSequenceImpedance.g0ch>0.0</cim:PerLengthSequenceImpedance.g0ch>
     </cim:PerLengthSequenceImpedance>
 
-    <cim:Conductor rdf:ID="COND_2">
-        <cim:Conductor.length>20.0</cim:Conductor.length>
-        <cim:IdentifiedObject.mRID>cond-mrid-2</cim:IdentifiedObject.mRID>
-        <cim:IdentifiedObject.name>COND_2</cim:IdentifiedObject.name>
-    </cim:Conductor>
+    <cim:PerLengthSequenceImpedance rdf:ID="_PLSI_Cable_1">
+        <cim:IdentifiedObject.mRID>_PLSI_Cable_1</cim:IdentifiedObject.mRID>
+        <cim:IdentifiedObject.name>XHE_49_150</cim:IdentifiedObject.name>
+        <cim:PerLengthSequenceImpedance.r>0.12</cim:PerLengthSequenceImpedance.r>
+        <cim:PerLengthSequenceImpedance.x>0.10</cim:PerLengthSequenceImpedance.x>
+        <cim:PerLengthSequenceImpedance.bch>5.0e-05</cim:PerLengthSequenceImpedance.bch>
+        <cim:PerLengthSequenceImpedance.gch>1.0e-09</cim:PerLengthSequenceImpedance.gch>
+        <cim:PerLengthSequenceImpedance.r0>0.24</cim:PerLengthSequenceImpedance.r0>
+        <cim:PerLengthSequenceImpedance.x0>0.30</cim:PerLengthSequenceImpedance.x0>
+        <cim:PerLengthSequenceImpedance.b0ch>3.0e-05</cim:PerLengthSequenceImpedance.b0ch>
+        <cim:PerLengthSequenceImpedance.g0ch>5.0e-10</cim:PerLengthSequenceImpedance.g0ch>
+    </cim:PerLengthSequenceImpedance>
 
-    <cim:ConnectivityNode rdf:ID="CN_2">
-        <cim:ConnectivityNode.description>Secondary connection point</cim:ConnectivityNode.description>
-        <cim:IdentifiedObject.mRID>conn-mrid-2</cim:IdentifiedObject.mRID>
-        <cim:IdentifiedObject.name>CN_2</cim:IdentifiedObject.name>
+    <cim:ConnectivityNode rdf:ID="_CN_StationA_1">
+        <cim:IdentifiedObject.mRID>_CN_StationA_1</cim:IdentifiedObject.mRID>
+        <cim:IdentifiedObject.name>Sabirnica_A1</cim:IdentifiedObject.name>
+        <cim:ConnectivityNode.description>Glavna sabirnica u Stanici A</cim:ConnectivityNode.description>
     </cim:ConnectivityNode>
 
-    <cim:DCLineSegment rdf:ID="DCSEG_2">
-        <cim:Conductor.length>20.0</cim:Conductor.length>
-        <cim:IdentifiedObject.mRID>dclineseg-mrid-2</cim:IdentifiedObject.mRID>
-        <cim:IdentifiedObject.name>DCSEG_2</cim:IdentifiedObject.name>
+    <cim:ConnectivityNode rdf:ID="_CN_StationB_1">
+        <cim:IdentifiedObject.mRID>_CN_StationB_1</cim:IdentifiedObject.mRID>
+        <cim:IdentifiedObject.name>Sabirnica_B1</cim:IdentifiedObject.name>
+        <cim:ConnectivityNode.description>Glavna sabirnica u Stanici B</cim:ConnectivityNode.description>
+    </cim:ConnectivityNode>
+
+    <cim:ACLineSegment rdf:ID="_AC_Line_1">
+        <cim:IdentifiedObject.mRID>_AC_Line_1</cim:IdentifiedObject.mRID>
+        <cim:IdentifiedObject.name>Vod_A1_B1_Primarni</cim:IdentifiedObject.name>
+        <cim:Conductor.length>10.0</cim:Conductor.length>
+        <cim:ACLineSegment.PerLengthImpedance rdf:resource="#_PLSI_Overs_1"/>
+        <cim:ACLineSegment.r>2.5</cim:ACLineSegment.r>
+        <cim:ACLineSegment.x>4.0</cim:ACLineSegment.x>
+        <cim:ACLineSegment.r0>4.5</cim:ACLineSegment.r0>
+        <cim:ACLineSegment.x0>12.0</cim:ACLineSegment.x0>
+    </cim:ACLineSegment>
+
+    <cim:ACLineSegment rdf:ID="_AC_Line_2">
+        <cim:IdentifiedObject.mRID>_AC_Line_2</cim:IdentifiedObject.mRID>
+        <cim:IdentifiedObject.name>Vod_A1_B1_Rezervni</cim:IdentifiedObject.name>
+        <cim:Conductor.length>5.0</cim:Conductor.length>
+        <cim:ACLineSegment.r>1.25</cim:ACLineSegment.r>
+        <cim:ACLineSegment.x>2.0</cim:ACLineSegment.x>
+        <cim:ACLineSegment.r0>2.25</cim:ACLineSegment.r0>
+        <cim:ACLineSegment.x0>6.0</cim:ACLineSegment.x0>
+    </cim:ACLineSegment>
+
+    <cim:DCLineSegment rdf:ID="_DC_Link_1">
+        <cim:IdentifiedObject.mRID>_DC_Link_1</cim:IdentifiedObject.mRID>
+        <cim:IdentifiedObject.name>HVDC_Sever</cim:IdentifiedObject.name>
+        <cim:Conductor.length>150.0</cim:Conductor.length>
     </cim:DCLineSegment>
 
-    <cim:SeriesCompensator rdf:ID="SC_2">
-        <cim:SeriesCompensator.r>0.04</cim:SeriesCompensator.r>
+    <cim:DCLineSegment rdf:ID="_DC_Link_2">
+        <cim:IdentifiedObject.mRID>_DC_Link_2</cim:IdentifiedObject.mRID>
+        <cim:IdentifiedObject.name>HVDC_Jug</cim:IdentifiedObject.name>
+        <cim:Conductor.length>145.0</cim:Conductor.length>
+    </cim:DCLineSegment>
+
+    <cim:SeriesCompensator rdf:ID="_SC_1">
+        <cim:IdentifiedObject.mRID>_SC_1</cim:IdentifiedObject.mRID>
+        <cim:IdentifiedObject.name>Serijski_Kondenzator_1</cim:IdentifiedObject.name>
+        <cim:SeriesCompensator.r>0.05</cim:SeriesCompensator.r>
+        <cim:SeriesCompensator.x>-1.5</cim:SeriesCompensator.x>
         <cim:SeriesCompensator.r0>0.10</cim:SeriesCompensator.r0>
-        <cim:SeriesCompensator.x>0.25</cim:SeriesCompensator.x>
-        <cim:SeriesCompensator.x0>0.75</cim:SeriesCompensator.x0>
-        <cim:IdentifiedObject.mRID>sc-mrid-2</cim:IdentifiedObject.mRID>
-        <cim:IdentifiedObject.name>SC_2</cim:IdentifiedObject.name>
+        <cim:SeriesCompensator.x0>-3.0</cim:SeriesCompensator.x0>
     </cim:SeriesCompensator>
 
-    <cim:Terminal rdf:ID="T_2">
-        <cim:Terminal.ConductingEquipment rdf:resource="#DCSEG_2"/>
-        <cim:Terminal.ConnectivityNode rdf:resource="#CN_2"/>
-        <cim:IdentifiedObject.mRID>t-mrid-2</cim:IdentifiedObject.mRID>
-        <cim:IdentifiedObject.name>T_2</cim:IdentifiedObject.name>
+    <cim:SeriesCompensator rdf:ID="_SC_2">
+        <cim:IdentifiedObject.mRID>_SC_2</cim:IdentifiedObject.mRID>
+        <cim:IdentifiedObject.name>Serijski_Reaktor_1</cim:IdentifiedObject.name>
+        <cim:SeriesCompensator.r>0.15</cim:SeriesCompensator.r>
+        <cim:SeriesCompensator.x>2.5</cim:SeriesCompensator.x>
+        <cim:SeriesCompensator.r0>0.30</cim:SeriesCompensator.r0>
+        <cim:SeriesCompensator.x0>5.0</cim:SeriesCompensator.x0>
+    </cim:SeriesCompensator>
+
+    <cim:Terminal rdf:ID="_T_Line1_A">
+        <cim:IdentifiedObject.mRID>_T_Line1_A</cim:IdentifiedObject.mRID>
+        <cim:IdentifiedObject.name>Term_L1_A</cim:IdentifiedObject.name>
+        <cim:Terminal.ConductingEquipment rdf:resource="#_AC_Line_1"/>
+        <cim:Terminal.ConnectivityNode rdf:resource="#_CN_StationA_1"/>
     </cim:Terminal>
+
+    <cim:Terminal rdf:ID="_T_Line1_B">
+        <cim:IdentifiedObject.mRID>_T_Line1_B</cim:IdentifiedObject.mRID>
+        <cim:IdentifiedObject.name>Term_L1_B</cim:IdentifiedObject.name>
+        <cim:Terminal.ConductingEquipment rdf:resource="#_AC_Line_1"/>
+        <cim:Terminal.ConnectivityNode rdf:resource="#_CN_StationB_1"/>
+    </cim:Terminal>
+
+    <cim:Terminal rdf:ID="_T_SC1_In">
+        <cim:IdentifiedObject.mRID>_T_SC1_In</cim:IdentifiedObject.mRID>
+        <cim:IdentifiedObject.name>Term_SC1_Ulaz</cim:IdentifiedObject.name>
+        <cim:Terminal.ConductingEquipment rdf:resource="#_SC_1"/>
+        <cim:Terminal.ConnectivityNode rdf:resource="#_CN_StationA_1"/>
+    </cim:Terminal>
+
+    <cim:Terminal rdf:ID="_T_SC1_Out">
+        <cim:IdentifiedObject.mRID>_T_SC1_Out</cim:IdentifiedObject.mRID>
+        <cim:IdentifiedObject.name>Term_SC1_Izlaz</cim:IdentifiedObject.name>
+        <cim:Terminal.ConductingEquipment rdf:resource="#_SC_1"/>
+        <cim:Terminal.ConnectivityNode rdf:resource="#_CN_StationB_1"/>
+    </cim:Terminal>
+
 </rdf:RDF>

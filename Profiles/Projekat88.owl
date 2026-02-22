@@ -318,6 +318,7 @@
     <owl:imports rdf:resource="http://www.ucaiug.org/CIM100"/>
   </rdf:Description>
   <rdf:Description rdf:about="#ACLineSegment">
+    <uml:hasStereotype rdf:resource="http://langdale.com.au/2005/UML#concrete"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:nodeID="Xd2X5ffba750Xa3X19c7f42eca6Xa3X-7fda"/>
     <rdfs:subClassOf rdf:nodeID="Xd2X5ffba750Xa3X19c7f42eca6Xa3X-7fdc"/>
@@ -337,7 +338,6 @@
     <rdfs:subClassOf rdf:resource="#Equipment"/>
   </rdf:Description>
   <rdf:Description rdf:about="#Conductor">
-    <uml:hasStereotype rdf:resource="http://langdale.com.au/2005/UML#concrete"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:nodeID="Xd2X5ffba750Xa3X19c7f42eca6Xa3X-7ff4"/>
     <rdfs:subClassOf rdf:resource="http://www.ucaiug.org/CIM100#Conductor"/>

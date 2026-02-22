@@ -15,6 +15,7 @@
   </rdf:Description>
   <rdf:Description rdf:about="#ACLineSegment">
     <cims:belongsToCategory rdf:resource="#Package_Wires"/>
+    <cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#concrete"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdfs:comment xml:space="preserve">A wire or combination of wires, with consistent electrical characteristics, building a single electrical system, used to carry alternating current between points in the power system.&#xD;
 For symmetrical, transposed 3ph lines, it is sufficient to use  attributes of the line segment, which describe impedances and admittances for the entire length of the segment.  Additionally impedances can be computed by using length and associated per length impedances.</rdfs:comment>
@@ -122,7 +123,6 @@ For symmetrical, transposed 3ph lines, it is sufficient to use  attributes of th
   </rdf:Description>
   <rdf:Description rdf:about="#Conductor">
     <cims:belongsToCategory rdf:resource="#Package_IES_Projects"/>
-    <cims:stereotype rdf:resource="http://langdale.com.au/2005/UML#concrete"/>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdfs:comment xml:space="preserve">Combination of conducting material with consistent electrical characteristics, building a single electrical system, used to carry current between points in the power system.</rdfs:comment>
     <rdfs:label>Conductor</rdfs:label>

@@ -69,7 +69,7 @@ namespace ModelLabsApp
 				using (FileStream fs = File.Open(textBoxCIMFile.Text, FileMode.Open))
 				{
 					nmsDelta = adapter.CreateDelta(fs, (SupportedProfiles)(comboBoxProfile.SelectedItem), out log);
-					richTextBoxReport.Text = log;
+					richTextBoxReport.Text = BuildReadableConversionReport(log, nmsDelta);
 				}
 				if (nmsDelta != null)
 				{
@@ -89,6 +89,29 @@ namespace ModelLabsApp
 
 			buttonApplyDelta.Enabled = (nmsDelta != null);
             textBoxCIMFile.Text = string.Empty;
+		}
+
+		private string BuildReadableConversionReport(string rawLog, Delta delta)
+		{
+			StringBuilder reportBuilder = new StringBuilder();
+			reportBuilder.Append(string.IsNullOrWhiteSpace(rawLog) ? "Load report:\r\n\r\nTransform report:\r\n" : rawLog.TrimEnd());
+
+			if (delta == null)
+			{
+				reportBuilder.AppendLine();
+				reportBuilder.AppendLine();
+				reportBuilder.AppendLine("No delta has been created.");
+				reportBuilder.AppendLine("Possible causes: the XML file is not a supported CIM extract for the selected profile, or required CIM classes are missing.");
+			}
+			else if (delta.NumberOfOperations == 0)
+			{
+				reportBuilder.AppendLine();
+				reportBuilder.AppendLine();
+				reportBuilder.AppendLine("Delta is created, but it contains 0 operations.");
+				reportBuilder.AppendLine("The XML was parsed, but no supported entities were found for conversion.");
+			}
+
+			return reportBuilder.ToString();
 		}
 
 		private void ApplyDMSNetworkModelDelta()

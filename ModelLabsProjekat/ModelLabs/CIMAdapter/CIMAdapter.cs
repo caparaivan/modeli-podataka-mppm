@@ -79,27 +79,29 @@ namespace FTN.ESI.SIMES.CIM.CIMAdapter
 			Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
 			try
 			{
-				ProfileManager.LoadAssembly(extractType, out assembly);
-				if (assembly != null)
+				if (!ProfileManager.LoadAssembly(extractType, out assembly) || (assembly == null))
 				{
-					CIMModel cimModel = new CIMModel();
-					CIMModelLoaderResult modelLoadResult = CIMModelLoader.LoadCIMXMLModel(extract, ProfileManager.Namespace, out cimModel);
-					if (modelLoadResult.Success)
-					{
-						concreteModelResult = new ConcreteModel();
-						ConcreteModelBuilder builder = new ConcreteModelBuilder();
-						ConcreteModelBuildingResult modelBuildResult = builder.GenerateModel(cimModel, assembly, ProfileManager.Namespace, ref concreteModelResult);
+					log = string.Format("Failed to load profile assembly. Expected '{0}' (or custom 'proj88CIMProfile_Labs.dll'). Make sure the DLL exists in the application folder.", ProfileManager.GetProfileDLLName(extractType));
+					return false;
+				}
 
-						if (modelBuildResult.Success)
-						{
-							valid = true;
-						}
-						log = modelBuildResult.Report.ToString();
-					}
-					else
+				CIMModel cimModel = new CIMModel();
+				CIMModelLoaderResult modelLoadResult = CIMModelLoader.LoadCIMXMLModel(extract, ProfileManager.Namespace, out cimModel);
+				if (modelLoadResult.Success)
+				{
+					concreteModelResult = new ConcreteModel();
+					ConcreteModelBuilder builder = new ConcreteModelBuilder();
+					ConcreteModelBuildingResult modelBuildResult = builder.GenerateModel(cimModel, assembly, ProfileManager.Namespace, ref concreteModelResult);
+
+					if (modelBuildResult.Success)
 					{
-						log = modelLoadResult.Report.ToString();
+						valid = true;
 					}
+					log = modelBuildResult.Report.ToString();
+				}
+				else
+				{
+					log = modelLoadResult.Report.ToString();
 				}
 			}
 			catch (Exception e)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Reflection;
 
 namespace FTN.ESI.SIMES.CIM.CIMAdapter.Manager
@@ -43,17 +44,33 @@ namespace FTN.ESI.SIMES.CIM.CIMAdapter.Manager
 
 		public static bool LoadAssembly(SupportedProfiles profile, out Assembly assembly)
 		{
-			try
+			string[] candidates =
 			{
-				assembly = Assembly.LoadFrom(string.Format(".\\{0}", ProfileManager.GetProfileDLLName(profile)));
-			}
-			catch (Exception e)
+				Path.Combine(".", ProfileManager.GetProfileDLLName(profile)),
+				Path.Combine(".", "proj88CIMProfile_Labs.dll")
+			};
+
+			foreach (string candidate in candidates)
 			{
-				assembly = null;
-				LogManager.Log(string.Format("Error during Assembly load. Profile: {0} ; Message: {1}", profile, e.Message), LogLevel.Error);
-				return false;
+				if (!File.Exists(candidate))
+				{
+					continue;
+				}
+
+				try
+				{
+					assembly = Assembly.LoadFrom(candidate);
+					return true;
+				}
+				catch (Exception e)
+				{
+					LogManager.Log(string.Format("Error during Assembly load. Profile: {0}, Path: {1} ; Message: {2}", profile, candidate, e.Message), LogLevel.Error);
+				}
 			}
-			return true;
+
+			assembly = null;
+			LogManager.Log(string.Format("Error during Assembly load. Profile: {0} ; Checked: {1}", profile, string.Join(", ", candidates)), LogLevel.Error);
+			return false;
 		}
 
 		public static bool LoadAssembly(string path, out Assembly assembly)

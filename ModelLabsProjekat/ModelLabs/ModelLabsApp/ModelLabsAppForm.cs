@@ -30,6 +30,14 @@ namespace ModelLabsApp
 			comboBoxProfile.DataSource = Enum.GetValues(typeof(SupportedProfiles));
 			comboBoxProfile.SelectedItem = SupportedProfiles.PowerTransformer;
 			//comboBoxProfile.Enabled = false; //// other profiles are not supported
+
+			Button buttonOpenGdaReader = new Button();
+			buttonOpenGdaReader.Text = "GDA Reader";
+			buttonOpenGdaReader.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			buttonOpenGdaReader.Margin = new Padding(3, 3, 10, 3);
+			buttonOpenGdaReader.Size = new System.Drawing.Size(78, 23);
+			buttonOpenGdaReader.Click += new EventHandler(this.buttonOpenGdaReaderOnClick);
+			tableLayoutPanelMain.Controls.Add(buttonOpenGdaReader, 2, 1);
 		}
 
 		private void ShowOpenCIMXMLFileDialog()
@@ -133,6 +141,15 @@ namespace ModelLabsApp
 		private void buttonApplyDeltaOnClick(object sender, EventArgs e)
 		{
 			ApplyDMSNetworkModelDelta();
+		}
+
+
+		private void buttonOpenGdaReaderOnClick(object sender, EventArgs e)
+		{
+			using (GdaReaderForm gdaReaderForm = new GdaReaderForm())
+			{
+				gdaReaderForm.ShowDialog(this);
+			}
 		}
 
 		private void buttonExitOnClick(object sender, EventArgs e)

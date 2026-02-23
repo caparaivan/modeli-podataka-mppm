@@ -84,6 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GdaReaderForm.cs" />
     <Compile Include="ModelLabsAppForm.cs">
       <SubType>Form</SubType>
     </Compile>

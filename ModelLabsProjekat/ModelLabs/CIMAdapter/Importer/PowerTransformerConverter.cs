@@ -34,7 +34,11 @@
             if ((cimConnectivityNode != null) && (rd != null))
             {
 				PopulateIdentifiedObjectProperties(cimConnectivityNode, rd);
-			}
+                if (cimConnectivityNode.DescriptionHasValue)
+                {
+                    rd.AddProperty(new Property(ModelCode.CONNECTIVITYNODE_DESCRIPTION, cimConnectivityNode.Description));
+                }
+            }
 		}
 
         public static void PopulateTerminalProperties(FTN.Terminal cimTerminal, ResourceDescription rd, ImportHelper importHelper, TransformAndLoadReport report)

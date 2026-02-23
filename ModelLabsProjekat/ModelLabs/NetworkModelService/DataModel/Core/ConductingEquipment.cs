@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using FTN.Common;
+
+namespace FTN.Services.NetworkModelService.DataModel.Core
+{
+    public class ConductingEquipment : Equipment
+    {
+        private readonly List<long> terminals = new List<long>();
+
+        public ConductingEquipment(long globalId) : base(globalId)
+        {
+        }
+
+        public override bool IsReferenced
+        {
+            get { return terminals.Count > 0 || base.IsReferenced; }
+        }
+
+        public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
+        {
+            if ((refType == TypeOfReference.Target || refType == TypeOfReference.Both) && terminals.Count > 0)
+            {
+                references[ModelCode.TERMINAL_CONDEQ] = new List<long>(terminals);
+            }
+
+            base.GetReferences(references, refType);
+        }
+
+        public override void AddReference(ModelCode referenceId, long globalId)
+        {
+            if (referenceId == ModelCode.TERMINAL_CONDEQ)
+            {
+                terminals.Add(globalId);
+            }
+            else
+            {
+                base.AddReference(referenceId, globalId);
+            }
+        }
+
+        public override void RemoveReference(ModelCode referenceId, long globalId)
+        {
+            if (referenceId == ModelCode.TERMINAL_CONDEQ)
+            {
+                if (terminals.Contains(globalId))
+                {
+                    terminals.Remove(globalId);
+                }
+                else
+                {
+                    CommonTrace.WriteTrace(CommonTrace.TraceWarning, "Entity (GID = 0x{0:x16}) doesn't contain reference 0x{1:x16}.", this.GlobalId, globalId);
+                }
+            }
+            else
+            {
+                base.RemoveReference(referenceId, globalId);
+            }
+        }
+    }
+}

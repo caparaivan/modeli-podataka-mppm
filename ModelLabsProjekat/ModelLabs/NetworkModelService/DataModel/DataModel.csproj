@@ -89,7 +89,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\IdentifiedObject.cs" />
+    <Compile Include="Core\PowerSystemResource.cs" />
+    <Compile Include="Core\Equipment.cs" />
+    <Compile Include="Core\ConductingEquipment.cs" />
     <Compile Include="Core\ConnectivityNode.cs" />
+    <Compile Include="Core\Terminal.cs" />
+    <Compile Include="Wires\Conductor.cs" />
+    <Compile Include="Wires\ACLineSegment.cs" />
+    <Compile Include="Wires\DCLineSegment.cs" />
+    <Compile Include="Wires\SeriesCompensator.cs" />
+    <Compile Include="Wires\PerLengthImpedance.cs" />
+    <Compile Include="Wires\PerLengthSequenceImpedance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -72,10 +72,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PowerTransformerCIMProfile_Labs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\PowerTransformerCIMProfile_Labs.dll</HintPath>
-    </Reference>
     <Reference Include="proj88CIMProfile_Labs">
       <HintPath>Lib\proj88CIMProfile_Labs.dll</HintPath>
     </Reference>
@@ -113,7 +109,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Lib\PowerTransformerCIMProfile_Labs.dll" />
+    <Content Include="Lib\proj88CIMProfile_Labs.dll" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

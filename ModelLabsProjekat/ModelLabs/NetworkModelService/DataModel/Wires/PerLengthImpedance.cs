@@ -13,6 +13,23 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
         {
         }
 
+        public override void AddReference(ModelCode referenceId, long globalId)
+        {
+            if (referenceId == ModelCode.ACLINESEGMENT_PERLENGTHIMP)
+            {
+                if (!aCLineSegments.Contains(globalId)) aCLineSegments.Add(globalId);
+            }
+            else base.AddReference(referenceId, globalId);
+        }
+
+        public override void GetProperty(Property property)
+        {
+            if (property.Id == ModelCode.PERLENGTHIMP_ACLINESEGMENTS)
+            {
+                property.SetValue(aCLineSegments);
+            }
+            else base.GetProperty(property);
+        }
         public List<long> ACLineSegments
         {
             get { return aCLineSegments; }
@@ -33,19 +50,6 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
         public override bool IsReferenced
         {
             get { return aCLineSegments.Count > 0 || base.IsReferenced; }
-        }
-
-        public override void AddReference(ModelCode referenceId, long globalId)
-        {
-            switch (referenceId)
-            {
-                case ModelCode.ACLINESEGMENT_PERLENGTHIMP:
-                    aCLineSegments.Add(globalId);
-                    break;
-                default:
-                    base.AddReference(referenceId, globalId);
-                    break;
-            }
         }
 
         public override void RemoveReference(ModelCode referenceId, long globalId)

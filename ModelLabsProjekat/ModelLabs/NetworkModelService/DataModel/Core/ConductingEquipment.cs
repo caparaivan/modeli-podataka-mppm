@@ -12,21 +12,27 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
         {
         }
 
-        public override bool IsReferenced
-        {
-            get { return terminals.Count > 0 || base.IsReferenced; }
-        }
-
         public override void AddReference(ModelCode referenceId, long globalId)
         {
             if (referenceId == ModelCode.TERMINAL_CONDEQ)
             {
-                terminals.Add(globalId);
+                if (!terminals.Contains(globalId)) terminals.Add(globalId);
             }
-            else
+            else base.AddReference(referenceId, globalId);
+        }
+
+        public override void GetProperty(Property property)
+        {
+            if (property.Id == ModelCode.CONDEQ_TERMINALS)
             {
-                base.AddReference(referenceId, globalId);
+                property.SetValue(terminals);
             }
+            else base.GetProperty(property);
+        }
+
+        public override bool IsReferenced
+        {
+            get { return terminals.Count > 0 || base.IsReferenced; }
         }
 
         public override void RemoveReference(ModelCode referenceId, long globalId)

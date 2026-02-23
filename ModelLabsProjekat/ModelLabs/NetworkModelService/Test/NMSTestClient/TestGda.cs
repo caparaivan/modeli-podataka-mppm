@@ -705,6 +705,21 @@ namespace TelventDMS.Services.NetworkModelService.TestClient.Tests
             return updates;
         }
 
+        public List<long> GetSegmentsOfMaxGidImpedance()
+        {
+            // 1. Проналажење импедансе са највећим GID-ом
+            List<ModelCode> props = new List<ModelCode> { ModelCode.IDOBJ_GID };
+            List<long> allImpedanceGids = GetExtentValues(ModelCode.PERLENGTHSEQUENCEIMPEDANCE);
+
+            if (allImpedanceGids.Count == 0) return new List<long>();
+
+            long maxGid = allImpedanceGids.Max();
+
+            // 2. Добављање повезаних деоница преко асоцијације
+            Association assoc = new Association(ModelCode.PERLENGTHIMP_ACLINESEGMENTS, ModelCode.ACLINESEGMENT);
+            return GetRelatedValues(maxGid, assoc);
+        }
+
         #region set references
 
         //private void SetPowerTransformerReferences(Dictionary<DMSType, ResourceDescription> updates)

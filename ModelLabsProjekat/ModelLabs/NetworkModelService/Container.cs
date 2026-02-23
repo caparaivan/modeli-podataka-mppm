@@ -130,16 +130,17 @@ namespace FTN.Services.NetworkModelService
                     io = new Terminal(globalId);
                     break;
 
-                case DMSType.SERIESCOMPENSATOR:
-                    io = new SeriesCompensator(globalId);
+
+                case DMSType.ACLINESEGMENT:
+                    io = new ACLineSegment(globalId);
                     break;
 
                 case DMSType.DCLINESEGMENT:
                     io = new DCLineSegment(globalId);
                     break;
 
-                case DMSType.ACLINESEGMENT:
-                    io = new ACLineSegment(globalId);
+                case DMSType.SERIESCOMPENSATOR:
+                    io = new SeriesCompensator(globalId);
                     break;
 
                 case DMSType.PERLENGTHSEQUENCEIMPEDANCE:

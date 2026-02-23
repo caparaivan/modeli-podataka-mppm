@@ -12,6 +12,24 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
         {
         }
 
+        public override void AddReference(ModelCode referenceId, long globalId)
+        {
+            if (referenceId == ModelCode.TERMINAL_CONNECTIVITYNODE)
+            {
+                if (!terminals.Contains(globalId)) terminals.Add(globalId);
+            }
+            else base.AddReference(referenceId, globalId);
+        }
+
+        public override void GetProperty(Property property)
+        {
+            if (property.Id == ModelCode.CONNECTIVITYNODE_TERMINALS)
+            {
+                property.SetValue(terminals);
+            }
+            else base.GetProperty(property);
+        }
+
         public List<long> Terminals
         {
             get { return terminals; }
@@ -32,19 +50,6 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
         public override bool IsReferenced
         {
             get { return terminals.Count > 0 || base.IsReferenced; }
-        }
-
-        public override void AddReference(ModelCode referenceId, long globalId)
-        {
-            switch (referenceId)
-            {
-                case ModelCode.TERMINAL_CONNECTIVITYNODE:
-                    terminals.Add(globalId);
-                    break;
-                default:
-                    base.AddReference(referenceId, globalId);
-                    break;
-            }
         }
 
         public override void RemoveReference(ModelCode referenceId, long globalId)

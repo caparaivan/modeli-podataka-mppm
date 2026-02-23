@@ -883,11 +883,14 @@ namespace FTN.Common
 		private void InitializeNotSettablePropertyIds()
 		{			
 			notSettablePropertyIds.Add(ModelCode.IDOBJ_GID);
-			//notSettablePropertyIds.Add(ModelCode.BASEVOLTAGE_CONDEQS);
-			//notSettablePropertyIds.Add(ModelCode.LOCATION_PSRS);
-			//notSettablePropertyIds.Add(ModelCode.POWERTRWINDING_TESTS);
+            notSettablePropertyIds.Add(ModelCode.CONNECTIVITYNODE_TERMINALS);
+            notSettablePropertyIds.Add(ModelCode.CONDEQ_TERMINALS);
+            notSettablePropertyIds.Add(ModelCode.PERLENGTHIMP_ACLINESEGMENTS);
+            //notSettablePropertyIds.Add(ModelCode.BASEVOLTAGE_CONDEQS);
+            //notSettablePropertyIds.Add(ModelCode.LOCATION_PSRS);
+            //notSettablePropertyIds.Add(ModelCode.POWERTRWINDING_TESTS);
             //notSettablePropertyIds.Add(ModelCode.POWERTR_WINDINGS);	
-		}
+        }
 	
 		# endregion Initialization of metadata
 

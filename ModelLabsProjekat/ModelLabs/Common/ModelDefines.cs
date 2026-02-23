@@ -15,7 +15,6 @@ namespace FTN.Common
         ACLINESEGMENT = 0x0005,
         PERLENGTHSEQUENCEIMPEDANCE = 0x0006,
 
-        // Zakomentarisani stari tipovi
         // BASEVOLTAGE                      = 0x0001,
         // LOCATION                         = 0x0002,
         // POWERTR                          = 0x0003,

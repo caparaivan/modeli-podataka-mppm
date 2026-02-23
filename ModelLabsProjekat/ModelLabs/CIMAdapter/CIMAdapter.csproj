@@ -76,6 +76,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\PowerTransformerCIMProfile_Labs.dll</HintPath>
     </Reference>
+    <Reference Include="proj88CIMProfile_Labs">
+      <HintPath>Lib\proj88CIMProfile_Labs.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />

@@ -17,16 +17,6 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
             get { return terminals.Count > 0 || base.IsReferenced; }
         }
 
-        public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
-        {
-            if ((refType == TypeOfReference.Target || refType == TypeOfReference.Both) && terminals.Count > 0)
-            {
-                references[ModelCode.TERMINAL_CONDEQ] = new List<long>(terminals);
-            }
-
-            base.GetReferences(references, refType);
-        }
-
         public override void AddReference(ModelCode referenceId, long globalId)
         {
             if (referenceId == ModelCode.TERMINAL_CONDEQ)

@@ -51,5 +51,15 @@ namespace FTN.Common
 		Primary = 1,
 		Secondary = 2,
 		Tertiary = 3
-	}			
+	}
+
+    [Flags]
+    public enum TypeOfReference : short
+    {
+        Reference = 1,
+        Target = 2,
+        Both = Reference | Target
+    }
+
+
 }

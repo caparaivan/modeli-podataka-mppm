@@ -27,6 +27,16 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
             return false;
         }
 
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = base.GetHashCode();
+                hash = (hash * 397) ^ length.GetHashCode();
+                return hash;
+            }
+        }
+
         public override bool HasProperty(ModelCode property)
         {
             if (property == ModelCode.CONDUCTOR_LENGTH)

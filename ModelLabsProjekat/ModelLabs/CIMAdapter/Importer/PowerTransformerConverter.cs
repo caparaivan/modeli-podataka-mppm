@@ -22,10 +22,10 @@
 				{
 					rd.AddProperty(new Property(ModelCode.IDOBJ_NAME, cimIdentifiedObject.Name));
 				}
-				if (cimIdentifiedObject.DescriptionHasValue)
-				{
-					rd.AddProperty(new Property(ModelCode.IDOBJ_DESCRIPTION, cimIdentifiedObject.Description));
-				}
+				//if (cimIdentifiedObject.DescriptionHasValue)
+				//{
+				//	rd.AddProperty(new Property(ModelCode.IDOBJ_DESCRIPTION, cimIdentifiedObject.Description));
+				//}
 			}
 		}
 
@@ -34,10 +34,10 @@
             if ((cimConnectivityNode != null) && (rd != null))
             {
 				PopulateIdentifiedObjectProperties(cimConnectivityNode, rd);
-                if (cimConnectivityNode.DescriptionHasValue)
-                {
-                    rd.AddProperty(new Property(ModelCode.CONNECTIVITYNODE_DESCRIPTION, cimConnectivityNode.Description));
-                }
+                //if (cimConnectivityNode.DescriptionHasValue)
+                //{
+                //    rd.AddProperty(new Property(ModelCode.CONNECTIVITYNODE_DESCRIPTION, cimConnectivityNode.Description));
+                //}
             }
 		}
 

@@ -29,43 +29,9 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
             return false;
         }
 
-        public override bool HasProperty(ModelCode property)
-        {
-            switch (property)
-            {
-                case ModelCode.CONNECTIVITYNODE_TERMINALS:
-                    return true;
-                default:
-                    return base.HasProperty(property);
-            }
-        }
-
-        public override void GetProperty(Property property)
-        {
-            switch (property.Id)
-            {
-                case ModelCode.CONNECTIVITYNODE_TERMINALS:
-                    property.SetValue(terminals);
-                    break;
-                default:
-                    base.GetProperty(property);
-                    break;
-            }
-        }
-
         public override bool IsReferenced
         {
             get { return terminals.Count > 0 || base.IsReferenced; }
-        }
-
-        public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
-        {
-            if (terminals != null && terminals.Count > 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
-            {
-                references[ModelCode.CONNECTIVITYNODE_TERMINALS] = terminals.GetRange(0, terminals.Count);
-            }
-
-            base.GetReferences(references, refType);
         }
 
         public override void AddReference(ModelCode referenceId, long globalId)

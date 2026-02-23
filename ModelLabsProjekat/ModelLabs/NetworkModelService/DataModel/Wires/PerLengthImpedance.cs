@@ -30,43 +30,9 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
             return false;
         }
 
-        public override bool HasProperty(ModelCode property)
-        {
-            switch (property)
-            {
-                case ModelCode.PERLENGTHIMP_ACLINESEGMENTS:
-                    return true;
-                default:
-                    return base.HasProperty(property);
-            }
-        }
-
-        public override void GetProperty(Property property)
-        {
-            switch (property.Id)
-            {
-                case ModelCode.PERLENGTHIMP_ACLINESEGMENTS:
-                    property.SetValue(aCLineSegments);
-                    break;
-                default:
-                    base.GetProperty(property);
-                    break;
-            }
-        }
-
         public override bool IsReferenced
         {
             get { return aCLineSegments.Count > 0 || base.IsReferenced; }
-        }
-
-        public override void GetReferences(Dictionary<ModelCode, List<long>> references, TypeOfReference refType)
-        {
-            if (aCLineSegments != null && aCLineSegments.Count > 0 && (refType == TypeOfReference.Target || refType == TypeOfReference.Both))
-            {
-                references[ModelCode.PERLENGTHIMP_ACLINESEGMENTS] = aCLineSegments.GetRange(0, aCLineSegments.Count);
-            }
-
-            base.GetReferences(references, refType);
         }
 
         public override void AddReference(ModelCode referenceId, long globalId)

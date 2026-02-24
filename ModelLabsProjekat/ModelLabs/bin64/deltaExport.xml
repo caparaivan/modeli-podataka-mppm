@@ -1,0 +1,151 @@
+﻿<delta id="0">
+  <operations>
+    <operation type="insert">
+      <ResourceDescriptions count="14">
+        <ResourceDescription>
+          <id gid="0x00000002ffffffff" type="CONNECTIVITYNODE" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="_CN_StationA_1" />
+            <Property id="IDOBJ_NAME" value="Sabirnica_A1" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000002fffffffe" type="CONNECTIVITYNODE" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="_CN_StationB_1" />
+            <Property id="IDOBJ_NAME" value="Sabirnica_B1" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000006ffffffff" type="PERLENGTHSEQUENCEIMPEDANCE" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="_PLSI_Cable_1" />
+            <Property id="IDOBJ_NAME" value="XHE_49_150" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_R" value="0.12" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_R0" value="0.24" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_X" value="0.1" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_X0" value="0.3" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_BCH" value="5E-05" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_B0CH" value="3E-05" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_GCH" value="1E-09" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_G0CH" value="5E-10" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000006fffffffe" type="PERLENGTHSEQUENCEIMPEDANCE" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="_PLSI_Overs_1" />
+            <Property id="IDOBJ_NAME" value="AlCu_120_20" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_R" value="0.25" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_R0" value="0.45" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_X" value="0.4" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_X0" value="1.2" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_BCH" value="2.5E-06" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_B0CH" value="1.5E-06" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_GCH" value="0" />
+            <Property id="PERLENGTHSEQUENCEIMPEDANCE_G0CH" value="0" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000003ffffffff" type="SERIESCOMPENSATOR" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="_SC_1" />
+            <Property id="IDOBJ_NAME" value="Serijski_Kondenzator_1" />
+            <Property id="SERIESCOMPENSATOR_R" value="0.05" />
+            <Property id="SERIESCOMPENSATOR_R0" value="0.1" />
+            <Property id="SERIESCOMPENSATOR_X" value="-1.5" />
+            <Property id="SERIESCOMPENSATOR_X0" value="-3" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000003fffffffe" type="SERIESCOMPENSATOR" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="_SC_2" />
+            <Property id="IDOBJ_NAME" value="Serijski_Reaktor_1" />
+            <Property id="SERIESCOMPENSATOR_R" value="0.15" />
+            <Property id="SERIESCOMPENSATOR_R0" value="0.3" />
+            <Property id="SERIESCOMPENSATOR_X" value="2.5" />
+            <Property id="SERIESCOMPENSATOR_X0" value="5" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000004ffffffff" type="DCLINESEGMENT" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="_DC_Link_1" />
+            <Property id="IDOBJ_NAME" value="HVDC_Sever" />
+            <Property id="CONDUCTOR_LENGTH" value="150" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000004fffffffe" type="DCLINESEGMENT" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="_DC_Link_2" />
+            <Property id="IDOBJ_NAME" value="HVDC_Jug" />
+            <Property id="CONDUCTOR_LENGTH" value="145" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000005ffffffff" type="ACLINESEGMENT" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="_AC_Line_1" />
+            <Property id="IDOBJ_NAME" value="Vod_A1_B1_Primarni" />
+            <Property id="CONDUCTOR_LENGTH" value="10" />
+            <Property id="ACLINESEGMENT_R" value="2.5" />
+            <Property id="ACLINESEGMENT_R0" value="4.5" />
+            <Property id="ACLINESEGMENT_X" value="4" />
+            <Property id="ACLINESEGMENT_X0" value="12" />
+            <Property id="ACLINESEGMENT_PERLENGTHIMP" value="0x00000006fffffffe" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000005fffffffe" type="ACLINESEGMENT" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="_AC_Line_2" />
+            <Property id="IDOBJ_NAME" value="Vod_A1_B1_Rezervni" />
+            <Property id="CONDUCTOR_LENGTH" value="5" />
+            <Property id="ACLINESEGMENT_R" value="1.25" />
+            <Property id="ACLINESEGMENT_R0" value="2.25" />
+            <Property id="ACLINESEGMENT_X" value="2" />
+            <Property id="ACLINESEGMENT_X0" value="6" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000001ffffffff" type="TERMINAL" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="_T_Line1_A" />
+            <Property id="IDOBJ_NAME" value="Term_L1_A" />
+            <Property id="TERMINAL_CONDEQ" value="0x00000005ffffffff" />
+            <Property id="TERMINAL_CONNECTIVITYNODE" value="0x00000002ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000001fffffffe" type="TERMINAL" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="_T_Line1_B" />
+            <Property id="IDOBJ_NAME" value="Term_L1_B" />
+            <Property id="TERMINAL_CONDEQ" value="0x00000005ffffffff" />
+            <Property id="TERMINAL_CONNECTIVITYNODE" value="0x00000002fffffffe" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000001fffffffd" type="TERMINAL" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="_T_SC1_In" />
+            <Property id="IDOBJ_NAME" value="Term_SC1_Ulaz" />
+            <Property id="TERMINAL_CONDEQ" value="0x00000003ffffffff" />
+            <Property id="TERMINAL_CONNECTIVITYNODE" value="0x00000002ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000001fffffffc" type="TERMINAL" />
+          <Properties>
+            <Property id="IDOBJ_MRID" value="_T_SC1_Out" />
+            <Property id="IDOBJ_NAME" value="Term_SC1_Izlaz" />
+            <Property id="TERMINAL_CONDEQ" value="0x00000003ffffffff" />
+            <Property id="TERMINAL_CONNECTIVITYNODE" value="0x00000002fffffffe" />
+          </Properties>
+        </ResourceDescription>
+      </ResourceDescriptions>
+    </operation>
+  </operations>
+</delta>

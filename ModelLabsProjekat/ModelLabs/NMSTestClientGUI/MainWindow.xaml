@@ -55,9 +55,9 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <StackPanel>
-                        <Label Content="Global ID (Hex format, npr. 0x0000000100000001):"/>
+                        <Label Content="Global ID (Hex format, npr. 0x0000000100000001):" HorizontalAlignment="Center"/>
                         <TextBox x:Name="TbGetValuesGid"/>
-                        <Button x:Name="BtnGetValues" Content="Get Values" Click="BtnGetValues_Click" HorizontalAlignment="Left"/>
+                        <Button x:Name="BtnGetValues" Content="Get Values" Click="BtnGetValues_Click" HorizontalAlignment="Center"/>
                     </StackPanel>
                     <RichTextBox x:Name="RtbGetValues" Grid.Row="1"/>
                 </Grid>
@@ -70,9 +70,9 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <StackPanel>
-                        <Label Content="ModelCode (npr. ACLINESEGMENT):"/>
+                        <Label Content="ModelCode (npr. ACLINESEGMENT):" HorizontalAlignment="Center"/>
                         <TextBox x:Name="TbExtentModelCode"/>
-                        <Button x:Name="BtnGetExtent" Content="Get Extent" Click="BtnGetExtent_Click" HorizontalAlignment="Left"/>
+                        <Button x:Name="BtnGetExtent" Content="Get Extent" Click="BtnGetExtent_Click" HorizontalAlignment="Center"/>
                     </StackPanel>
                     <RichTextBox x:Name="RtbExtentValues" Grid.Row="1"/>
                 </Grid>
@@ -84,20 +84,20 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <StackPanel>
-                        <Label Content="Source GID:"/>
+                    <StackPanel HorizontalAlignment="Center">
+                        <Label Content="Source GID:" HorizontalAlignment="Center"/>
                         <TextBox x:Name="TbSourceGid"/>
                         <Label Content="Association Property (Reference/Vector):"/>
                         <TextBox x:Name="TbAssociationProperty"/>
-                        <Label Content="Association Type (Target Type):"/>
+                        <Label Content="Association Type (Target Type):" HorizontalAlignment="Center"/>
                         <TextBox x:Name="TbAssociationType"/>
-                        <Button x:Name="BtnGetRelated" Content="Get Related" Click="BtnGetRelated_Click" HorizontalAlignment="Left"/>
+                        <Button x:Name="BtnGetRelated" Content="Get Related" Click="BtnGetRelated_Click" HorizontalAlignment="Center"/>
                     </StackPanel>
                     <RichTextBox x:Name="RtbRelatedValues" Grid.Row="1"/>
                 </Grid>
             </TabItem>
 
-            <TabItem Header="Mreža i Parametri (60 poena)">
+            <TabItem Header="Mreza i Parametri">
                 <Grid Margin="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
@@ -105,14 +105,14 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel>
-                        <Label Content="Kompleksni upit: Nadji deonice (ACLineSegment) za impedansu sa najvećim GID-om" Foreground="#10B981" FontSize="14"/>
+                        <Label Content="Kompleksni upit: Nadji deonice (ACLineSegment) za impedansu sa najvećim GID-om" Foreground="#10B981" FontSize="14" HorizontalAlignment="Center"/>
                         <Button Content="Izvrši Max GID Upit" Click="BtnQueryMaxGidSegments_Click" 
-                                Background="#059669" Width="250" HorizontalAlignment="Left" Height="45" Margin="0,10,0,10"/>
+                                Background="#059669" Width="250" HorizontalAlignment="Center" Height="45" Margin="0,10,0,10"/>
                         <Separator Background="#374151" Margin="0,5,0,15"/>
 
-                        <Label Content="Pronađi Clampe za ACLineSegment (GID):"/>
-                        <TextBox x:Name="TbAclineGid" Width="400" HorizontalAlignment="Left"/>
-                        <StackPanel Orientation="Horizontal">
+                        <Label Content="Pronađi Clampe za ACLineSegment (GID):" HorizontalAlignment="Center"/>
+                        <TextBox x:Name="TbAclineGid" Width="400" HorizontalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button x:Name="BtnGetClamps" Content="Svi Clampi" Click="BtnGetClamps_Click" Margin="0,5,10,10"/>
                             <Button x:Name="BtnClampMinLength" Content="Clamp sa min dužinom" Click="BtnClampMinLength_Click" Width="220"/>
                         </StackPanel>
@@ -128,7 +128,7 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <WrapPanel Orientation="Horizontal">
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button x:Name="BtnTerminals" Content="Svi Terminali" Click="BtnGetTerminals_Click" Margin="0,5,10,10"/>
                         <Button x:Name="BtnDisconnectedTerminals" Content="Diskonektovani" Click="BtnDisconnectedTerminals_Click" Margin="0,5,10,10"/>
                         <Button x:Name="BtnConnectedTerminals" Content="Konektovani" Click="BtnConnectedTerminals_Click"/>

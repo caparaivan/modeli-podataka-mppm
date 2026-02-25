@@ -11,5 +11,16 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
         public Equipment(long globalId) : base(globalId)
         {
         }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
     }
 }

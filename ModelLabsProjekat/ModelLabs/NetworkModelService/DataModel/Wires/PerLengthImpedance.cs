@@ -30,6 +30,18 @@ namespace FTN.Services.NetworkModelService.DataModel.Wires
             }
             else base.GetProperty(property);
         }
+
+        public override bool HasProperty(ModelCode property)
+        {
+            switch (property)
+            {
+                case ModelCode.PERLENGTHIMP_ACLINESEGMENTS: // Lista vodova [1]
+                    return true;
+                default:
+                    return base.HasProperty(property);
+            }
+        }
+
         public List<long> ACLineSegments
         {
             get { return aCLineSegments; }

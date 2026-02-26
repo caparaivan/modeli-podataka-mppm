@@ -30,6 +30,12 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
             else base.GetProperty(property);
         }
 
+        public override bool HasProperty(ModelCode property)
+        {
+            if (property == ModelCode.CONDEQ_TERMINALS) return true;
+            return base.HasProperty(property);
+        }
+
         public override bool IsReferenced
         {
             get { return terminals.Count > 0 || base.IsReferenced; }

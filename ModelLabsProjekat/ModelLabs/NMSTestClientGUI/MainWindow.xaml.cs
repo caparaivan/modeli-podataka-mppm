@@ -72,35 +72,30 @@ namespace NMSTestClientGUI
             try
             {
                 long sourceGid = ParseGid(TbSourceGid.Text);
+                Enum.TryParse(TbAssociationProperty.Text?.Trim(), true, out ModelCode prop);
+                Enum.TryParse(TbAssociationType.Text?.Trim(), true, out ModelCode type);
 
-                if (!Enum.TryParse(TbAssociationProperty.Text?.Trim(), true, out ModelCode associationProperty))
-                {
-                    throw new ArgumentException("Invalid association property ModelCode.");
-                }
-
-                ModelCode associationType = 0;
-                string associationTypeText = TbAssociationType.Text?.Trim();
-                if (!string.IsNullOrEmpty(associationTypeText) && !Enum.TryParse(associationTypeText, true, out associationType))
-                {
-                    throw new ArgumentException("Invalid association type ModelCode.");
-                }
-
-                Association association = new Association(associationProperty, associationType);
-                List<long> ids = testGda.GetRelatedValues(sourceGid, association);
+                // Prvi korak: Pronalaženje povezanih GID-ova 
+                Association association = new Association(prop, type);
+                List<long> relatedIds = testGda.GetRelatedValues(sourceGid, association);
 
                 StringBuilder sb = new StringBuilder();
-                sb.AppendLine($"Related values count: {ids.Count}");
-                foreach (long id in ids)
-                {
-                    sb.AppendLine($"- 0x{id:X16}");
-                }
+                sb.AppendLine($"=== REZULTAT ASOCIJACIJE ({relatedIds.Count} resursa) ===");
+                sb.AppendLine();
 
+                // Drugi korak (za 60 poena): Za svaki nađeni GID, pročitaj detalje 
+                foreach (long id in relatedIds)
+                {
+                    ResourceDescription rd = testGda.GetValues(id);
+                    if (rd != null)
+                    {
+                        sb.AppendLine(DescribeResource(rd)); // Koristi našu Hex-ready metodu
+                        sb.AppendLine(new string('=', 40));
+                    }
+                }
                 ShowResult(RtbRelatedValues, sb.ToString());
             }
-            catch (Exception ex)
-            {
-                ShowResult(RtbRelatedValues, "ERROR: " + ex.Message);
-            }
+            catch (Exception ex) { ShowResult(RtbRelatedValues, "GDA GREŠKA: " + ex.Message); }
         }
 
         private static long ParseGid(string raw)
@@ -117,20 +112,39 @@ namespace NMSTestClientGUI
 
         private static string DescribeResource(ResourceDescription rd)
         {
-            if (rd == null)
-            {
-                return "[null resource]";
-            }
+            if (rd == null) return "[null resource]";
 
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"GID: 0x{rd.Id:X16}");
+            sb.AppendLine("=== DETALJI RESURSA ===");
+            sb.AppendLine($"Global ID: 0x{rd.Id:X16}");
+            sb.AppendLine(new string('-', 35));
 
-            Property name = rd.GetProperty(ModelCode.IDOBJ_NAME);
-            if (name != null)
+            foreach (Property prop in rd.Properties)
             {
-                sb.AppendLine($"IME: {name.AsString()}");
-            }
+                string valueDisplay = string.Empty;
 
+                // Provera tipa atributa za lepši ispis 
+                if (prop.Type == PropertyType.ReferenceVector)
+                {
+                    // Ako je lista (npr. Terminali), ispisujemo sve ID-ove odvojene zarezom
+                    List<long> gids = prop.AsReferences();
+                    valueDisplay = gids.Count > 0
+                       ? string.Join(", ", gids.Select(g => $"0x{g:X16}"))
+                        : "Empty List";
+                }
+                else if (prop.Type == PropertyType.Reference || prop.Id == ModelCode.IDOBJ_GID)
+                {
+                    // Pojedinačne reference i GID uvek u Hex-u
+                    valueDisplay = $"0x{prop.AsLong():X16}";
+                }
+                else
+                {
+                    // Ostali tipovi (float, string, bool)
+                    valueDisplay = prop.GetValue()?.ToString() ?? "null";
+                }
+
+                sb.AppendLine($"{prop.Id,-35} : {valueDisplay}");
+            }
             return sb.ToString();
         }
 
@@ -138,6 +152,11 @@ namespace NMSTestClientGUI
         {
             rtb.Document.Blocks.Clear();
             rtb.Document.Blocks.Add(new Paragraph(new Run(text ?? string.Empty)));
+        }
+
+        private void RtbGetValues_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

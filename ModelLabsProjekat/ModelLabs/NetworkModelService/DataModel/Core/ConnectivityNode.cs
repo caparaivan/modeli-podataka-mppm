@@ -30,6 +30,12 @@ namespace FTN.Services.NetworkModelService.DataModel.Core
             else base.GetProperty(property);
         }
 
+        public override bool HasProperty(ModelCode property)
+        {
+            if (property == ModelCode.CONNECTIVITYNODE_TERMINALS) return true;
+            return base.HasProperty(property);
+        }
+
         public List<long> Terminals
         {
             get { return terminals; }
